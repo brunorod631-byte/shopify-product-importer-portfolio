@@ -1,4 +1,10 @@
-# importador_shopify_bot
+# Shopify Product Importer Portfolio
+
+![Python](https://img.shields.io/badge/Python-3.12+-3776AB?logo=python&logoColor=white)
+![Shopify](https://img.shields.io/badge/Shopify-GraphQL-96BF48?logo=shopify&logoColor=white)
+![Tests](https://img.shields.io/github/actions/workflow/status/brunorod631-byte/shopify-product-importer-portfolio/tests.yml?label=tests)
+
+Proyecto demostrativo de extracción, normalización y preparación de productos para Shopify, diseñado para portfolio profesional.
 
 Importador demostrativo de productos: recibe una URL por Telegram, obtiene información pública, normaliza el producto para revisión y puede crear un borrador mediante Shopify Admin GraphQL en una instalación controlada.
 
@@ -19,7 +25,7 @@ URL pública -> Bot de Telegram -> extractor del sitio -> normalización
 - Cliente Shopify GraphQL con reintentos y estado `DRAFT`.
 - Validación de URLs públicas, límites de tamaño y manejo de errores.
 
-## Demo sin servicios reales
+## Inicio rápido: demo offline sin servicios reales
 
 La copia pública no contiene tokens ni una tienda Shopify. Para demostrar la extracción local:
 
@@ -45,6 +51,18 @@ Completá únicamente credenciales de prueba. `DATABASE_URL` debe apuntar a una 
 ```powershell
 pytest
 ```
+
+Las pruebas se ejecutan sin credenciales externas.
+
+## Estructura principal
+
+| Carpeta | Responsabilidad |
+| --- | --- |
+| `app/extractors/` | Adaptadores por proveedor |
+| `app/services/` | Importación, precios, imágenes y duplicados |
+| `app/telegram/` | Autorización y estados |
+| `app/shopify/` | Cliente y operaciones GraphQL |
+| `tests/` | Fixtures y pruebas automatizadas |
 
 Las pruebas cubren extracción, GraphQL, conversión de moneda, seguridad, imágenes y flujo de importación sin credenciales externas.
 
