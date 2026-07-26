@@ -12,4 +12,8 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: pytest
+        env:
+          PYTHONPATH: .
       - run: python demo.py
+        env:
+          PYTHONPATH: .
