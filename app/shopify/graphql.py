@@ -1,0 +1,8 @@
+SHOP_QUERY="""query Health { shop { id name myshopifyDomain } currentAppInstallation { accessScopes { handle } } }"""
+CREATE_PRODUCT="""mutation Create($product: ProductCreateInput!, $media: [CreateMediaInput!]) { productCreate(product:$product,media:$media) { product { id title status handle variants(first:1){nodes{id}} media(first:20){nodes{id alt mediaContentType status}} } userErrors { field message } } }"""
+UPDATE_VARIANTS="""mutation UpdateVariants($productId:ID!,$variants:[ProductVariantsBulkInput!]!){productVariantsBulkUpdate(productId:$productId,variants:$variants){productVariants{id price compareAtPrice sku barcode taxable} userErrors{field message}}}"""
+FORCE_DRAFT="""mutation ForceDraft($product: ProductUpdateInput!) { productUpdate(product:$product) { product { id status publishedAt } userErrors { field message } } }"""
+SET_PRODUCT_STATUS="""mutation SetStatus($product: ProductUpdateInput!) { productUpdate(product:$product) { product { id status publishedAt } userErrors { field message } } }"""
+STAGED_UPLOADS_CREATE="""mutation StagedImage($input:[StagedUploadInput!]!){stagedUploadsCreate(input:$input){stagedTargets{url resourceUrl parameters{name value}} userErrors{field message}}}"""
+PUBLICATIONS="""query Publications { publications(first:50) { nodes { id name supportsFuturePublishing } } }"""
+PUBLISH_PRODUCT="""mutation Publish($id:ID!,$input:[PublicationInput!]!) { publishablePublish(id:$id,input:$input) { publishable { resourcePublicationsCount { count } } userErrors { field message } } }"""

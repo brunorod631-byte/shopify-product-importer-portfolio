@@ -1,0 +1,1 @@
+"""Extractores de productos."""

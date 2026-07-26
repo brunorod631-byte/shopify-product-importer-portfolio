@@ -1,0 +1,1 @@
+"""Cliente Shopify GraphQL."""

@@ -1,0 +1,20 @@
+[project]
+name = "shopify-telegram-bot"
+version = "1.0.0"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+ignore = ["S101", "S106", "S110", "E501", "E701", "E702", "E731", "I001", "B904", "UP017"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
